@@ -1,0 +1,2 @@
+Hello, I am b.txt file. 
+How are you?
