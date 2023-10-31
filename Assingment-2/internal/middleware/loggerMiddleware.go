@@ -22,10 +22,10 @@ func Logger() gin.HandlerFunc {
 		c.Request = req
 
 		log.Info().Str("track ID", trackerId).Str("Method", c.Request.Method).
-		Str("URL Path",c.Request.URL.Path).Msg("request started")
+			Str("URL Path", c.Request.URL.Path).Msg("request started")
 
 		defer log.Info().Str("track ID", trackerId).Str("Method", c.Request.Method).
-		Str("URL Path",c.Request.URL.Path).Int("status Code", c.Writer.Status()).Msg("Request processing completed")
+			Str("URL Path", c.Request.URL.Path).Int("status Code", c.Writer.Status()).Msg("Request processing completed")
 
 		c.Next()
 
