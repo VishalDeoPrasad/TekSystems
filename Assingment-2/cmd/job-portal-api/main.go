@@ -38,11 +38,11 @@ func startApp() error {
 		return fmt.Errorf("reading auth private key %w", err)
 		//it returns an error message using fmt.
 		//The %w verb is used to wrap the original error within a new error message for context.
-	
+
 	}
 	//PEM is a text-based encoding format that's commonly used for various types of data, including cryptographic keys.
 	//converting it into a format that can be used for cryptographic operations, such as signing or decrypting data.
-	
+
 	privateKey, err := jwt.ParseRSAPrivateKeyFromPEM(privatePEM)
 	if err != nil {
 		return fmt.Errorf("parsing auth private key %w", err)
@@ -77,7 +77,7 @@ func startApp() error {
 	}
 	pg, err := db.DB()
 	//pg : This variable will hold the pointer to the underlying PostgreSQL database connection.
-	
+
 	if err != nil {
 		return fmt.Errorf("failed to get database instance: %w ", err)
 	}
@@ -112,7 +112,7 @@ func startApp() error {
 	   sending a ping request with a specified context, and it captures any error
 	   that might occur during the operation. This is a common practice to ensure
 	   that the database is reachable before performing other database operations.*/
-	
+
 	err = pg.PingContext(ctx)
 	/*
 		ctx: A context can be used to set a timeout for the operation. If the ping
