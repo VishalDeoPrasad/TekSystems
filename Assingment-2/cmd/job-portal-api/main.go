@@ -89,7 +89,7 @@ func startApp() error {
 		and data sharing between different parts of a program.
 
 		creating a context with a timeout. The operation should complete within
-		the specified time, or it will be canceled.	*/
+		the specified time, or it will be canceled.*/
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 	/*
