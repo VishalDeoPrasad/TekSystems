@@ -10,7 +10,7 @@ type Mid struct {
 }
 
 /*
-In this code, the Mid type is a middleware that depends on an auth.Auth instance, 
+In this code, the Mid type is a middleware that depends on an auth.Auth instance,
 and the code is used to create and manage this middleware with proper error handling.
 */
 func NewMid(a *auth.Auth) (Mid, error) {
