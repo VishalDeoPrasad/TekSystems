@@ -1,6 +1,6 @@
-// * Database intialization and configuration
 package database
 
+// * Database intialization and configuration
 import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -8,8 +8,7 @@ import (
 
 // it returns two values: a pointer to a gorm.DB object (a database connection) and an error.
 
-func Open() (*gorm.DB, error) {
-	dsn := "host=localhost user=postgres password=admin dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Shanghai"
+func Open(dsn string) (*gorm.DB, error) {
 	/*
 		This line establishes a database connection using GORM.
 		it's using the PostgreSQL database driver, postgres.Open(dsn),
