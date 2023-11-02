@@ -20,16 +20,15 @@ func API(a *auth.Auth, c *services.DbConnStruct) *gin.Engine {
 	// Attempt to create new middleware with authentication
 	// Here, *auth.Auth passed as a parameter will be used to set up the middleware
 	mid, err := middleware.NewMid(a)
-	ms := services.NewStore(c)
-	h := handler{
-		s: ms,
-		a: a,
-	}
-
 	// If there is an error in setting up the middleware, panic and stop the application
 	// then log the error message
 	if err != nil {
 		log.Panic().Msg("middlewares not set up")
+	}
+	ms := services.NewStore(c)
+	h := handler{
+		s: ms,
+		a: a,
 	}
 
 	// Attach middleware's Log function and Gin's Recovery middleware to our application

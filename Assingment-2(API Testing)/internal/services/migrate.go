@@ -23,6 +23,7 @@ func NewConn(dbInstance *gorm.DB) (*DbConnStruct, error) {
 	if dbInstance == nil {
 		return nil, errors.New("provide the databse instance")
 	}
+	//dbInstance.Migrator().AutoMigrate()
 	/*
 		it creates a new DbConnStruct instance and initializes its db field with
 		the provided database connection.*/

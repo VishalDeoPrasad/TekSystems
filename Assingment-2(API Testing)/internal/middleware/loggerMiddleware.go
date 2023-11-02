@@ -28,6 +28,5 @@ func Logger() gin.HandlerFunc {
 			Str("URL Path", c.Request.URL.Path).Int("status Code", c.Writer.Status()).Msg("Request processing completed")
 
 		c.Next()
-
 	}
 }

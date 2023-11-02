@@ -18,8 +18,7 @@ type Service interface {
 	ViewCompanies(ctx context.Context) ([]models.Company, error)
 	CreateCompany(ctx context.Context, newComp models.Company) (models.Company, error)
 	CreateUser(ctx context.Context, nu models.NewUser) (models.User, error)
-	Authenticate(ctx context.Context, email, password string) (jwt.RegisteredClaims,
-		error)
+	Authenticate(ctx context.Context, email, password string) (jwt.RegisteredClaims, error)
 	AutoMigrate() error
 }
 
@@ -28,5 +27,7 @@ type Store struct {
 }
 
 func NewStore(s Service) Store {
-	return Store{Service: s}
+	return Store{
+		Service: s,
+	}
 }

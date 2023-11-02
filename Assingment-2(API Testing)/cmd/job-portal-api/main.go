@@ -125,6 +125,7 @@ func startApp() error {
 
 	// =========================================================================
 	//Initialize Conn layer support
+	//db.Migrator().AutoMigrate(&models.User{}, &models.Company{}, &models.Job{})
 	ms, err := services.NewConn(db)
 	if err != nil {
 		return err
