@@ -66,7 +66,8 @@ func startApp() error {
 	// =========================================================================
 	// Start Database
 	log.Info().Msg("main : Started : Initializing db support")
-	db, err := database.Open() // @ Return a connection of db
+	var dsn string = "host=localhost user=postgres password=admin dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Shanghai"
+	db, err := database.Open(dsn) // @ Return a connection of db
 	/*
 		db: This is a pointer to a gorm.DB object. It represents a connection
 		to your database. You can use this object to perform various database
