@@ -22,14 +22,12 @@ func Open() (*gorm.DB, error) {
 		db: This is a variable of type *gorm.DB, which represents a GORM database
 		connection. It's a pointer to the database connection that you'll use to
 		interact with the database.
-		err: This is an error variable that will store any potential error that might 
-		occur during the process of opening the database connection. If the 
-		connection is successful, err will be nil. If there's an issue, err 
+		err: This is an error variable that will store any potential error that might
+		occur during the process of opening the database connection. If the
+		connection is successful, err will be nil. If there's an issue, err
 		will contain details about the error.*/
 	if err != nil {
 		return nil, err
 	}
 	return db, nil
 }
-
-
