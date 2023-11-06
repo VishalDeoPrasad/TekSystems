@@ -1,15 +1,15 @@
 package handler
 
 import (
-	"golang/1-project/model"
+	"golang/1-project/entity"
 	"golang/1-project/service"
 
 	"github.com/gin-gonic/gin"
 )
 
 type VideoController interface {
-	Save(ctx *gin.Context) model.Video
-	FindAll() []model.Video
+	Save(ctx *gin.Context) entity.Video
+	FindAll() []entity.Video
 }
 
 type controller struct {
@@ -17,13 +17,13 @@ type controller struct {
 }
 
 // FindAll implements VideoController.
-func (c *controller) FindAll() []model.Video {
+func (c *controller) FindAll() []entity.Video {
 	return c.service.FindAll()
 }
 
 // Save implements VideoController.
-func (c *controller) Save(ctx *gin.Context) model.Video {
-	var video model.Video
+func (c *controller) Save(ctx *gin.Context) entity.Video {
+	var video entity.Video
 	ctx.BindJSON(&video)
 	c.service.Save(video)
 	return video
