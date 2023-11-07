@@ -5,6 +5,7 @@ import (
 	"golang/1-project/middleware"
 	"golang/1-project/service"
 	"io"
+	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -31,7 +32,12 @@ func main() {
 	})
 
 	server.POST("/videos", func(c *gin.Context) {
-		c.JSON(200, videoController.Save(c))
+		err := videoController.Save(c)
+		if err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		} else {
+			c.JSON(http.StatusOK, gin.H{"message": "data saved"})
+		}
 	})
 
 	server.Run(":8080")

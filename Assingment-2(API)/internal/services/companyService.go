@@ -14,8 +14,10 @@ func (s *DbConnStruct) CreateCompany(ctx context.Context, newComp models.Company
 	}
 	err := s.db.Create(&comp).Error
 	if err != nil {
+		//If there was an error during the database operation (e.g., company creation failed), this section returns an empty company object and the error
 		return models.Company{}, err
 	}
+	//If the company creation is successful, it returns the newly created comp object and no error.
 	return comp, nil
 }
 

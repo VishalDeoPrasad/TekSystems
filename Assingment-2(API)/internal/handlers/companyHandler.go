@@ -25,6 +25,16 @@ func (h *handler) RegisterCompany(c *gin.Context) {
 	var newComp models.Company
 
 	// Attempt to decode JSON from the request body into the NewUser variable
+	/*
+		json.NewDecoder(c.Request.Body) sets up a tool to read and understand JSON data from
+		the incoming HTTP request's body.
+
+		.Decode(&newComp) attempts to take that JSON data and put it into the newComp variable.
+		If everything goes well, the newComp variable will contain the JSON data.
+		
+		If there's a problem, like the JSON being badly formed or not fitting with newComp,
+		an error will be recorded in the err variable.
+	*/
 	err := json.NewDecoder(c.Request.Body).Decode(&newComp)
 	if err != nil {
 		// If there is an error in decoding, log the error and return
