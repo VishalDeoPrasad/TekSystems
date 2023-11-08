@@ -2,7 +2,7 @@ package services
 
 import (
 	"errors"
-	"golang/models"
+	"golang/internal/models"
 
 	"gorm.io/gorm"
 )
@@ -39,7 +39,7 @@ func (s *DbConnStruct) AutoMigrate() error {
 		Job tables to match the corresponding model structs. If the tables already
 		exist, it will add any missing columns or indexes as necessary, but it won't
 		change existing column types*/
-	err := s.db.Migrator().AutoMigrate(&models.Job_Portal{})
+	err := s.db.Migrator().AutoMigrate(&models.User{}, &models.Company{}, &models.Job{})
 	if err != nil {
 		// If there is an error while migrating, log the error message and stop the program
 		return err

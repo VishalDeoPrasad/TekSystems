@@ -6,6 +6,7 @@ import (
 	"golang/database"
 	"golang/handler"
 	"golang/middleware"
+	"golang/models"
 	"golang/services"
 	"net/http"
 	"time"
@@ -90,7 +91,7 @@ func main() {
 			if err != nil {
 				c.JSON(http.StatusBadRequest, gin.H{"error": "Error encounter will comparison."})
 			} else {
-				if job.ID == 0 {
+				if job == (models.JobOpenings{}) {
 					c.JSON(http.StatusBadGateway, gin.H{"message": "You are rejected, No job for you."})
 				} else {
 					c.JSON(http.StatusBadGateway, job)
@@ -100,5 +101,5 @@ func main() {
 
 	})
 
-	server.Run(":8000")
+	server.Run(":8080")
 }
